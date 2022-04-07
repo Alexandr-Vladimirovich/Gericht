@@ -1,3 +1,80 @@
-//====================================================================================================
+.mainpage {
+	&__slider {
+	}
+}
+.main-slider {
+	@include adaptiveValue("padding-top", 70, 40);
+	background-color: #0c0b08;
+	&__container {
+		&_wide {
+			position: relative;
+		}
+	}
 
-//====================================================================================================
+	&__menu {
+	}
+
+	&__scroll {
+	}
+}
+.body-main-slider {
+	&__slider {
+	}
+
+	&__swiper {
+	}
+
+	&__slide {
+	}
+
+	&__controll {
+	}
+}
+.slide-main-slider {
+	&__content {
+	}
+
+	&__header {
+	}
+
+	&__text {
+	}
+
+	&__button {
+	}
+
+	&__image {
+	}
+}
+.block-header {
+	&_big {
+	}
+
+	&_left {
+	}
+
+	&__subtitle {
+	}
+
+	&__title {
+	}
+}
+.menu-main-slider {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+	gap: 40px;
+	height: 100%;
+	top: 0;
+	left: rem(15);
+	&__link {
+		writing-mode: vertical-lr;
+		transform: rotate(-180deg);
+		font-size: 18px;
+		line-height: 175%;
+		letter-spacing: 0.04em;
+		color: #ffffff;
+	}
+}
