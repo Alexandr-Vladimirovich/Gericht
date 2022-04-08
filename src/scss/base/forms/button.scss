@@ -2,10 +2,16 @@
 // Снипет (HTML): btn
 
 .button {
-	display: inline-flex;
-	padding: 0px 0px;
+	padding: 8px 32px;
+	@extend %fcu;
+	font-weight: 700;
+	line-height: 175%;
+	background-color: $mainYellow;
+	color:$maincolorDark;
+	transition: background-color 0.3s ease 0s;
 	@media (any-hover: hover) {
 		&:hover {
+			background-color:$mainLiteYellow;
 		}
 	}
 	&._fw {

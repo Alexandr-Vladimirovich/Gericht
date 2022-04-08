@@ -1,6 +1,7 @@
 // Общий файл элементов форм
 // Для подключения/отключения стилей конкретного єлемента формы смотри base/forms/forms.scss
 @import "base/forms/forms";
+@import "base/forms/button";
 
 // Стили попапов
 // @import "base/popup";
@@ -18,7 +19,7 @@
 // @import "base/showmore";
 
 // Стили для полноэкранного блока
-// @import "base/fullscreen";
+ @import "base/fullscreen";
 
 // Стили для липкого блока
 // @import "base/sticky";
@@ -157,9 +158,8 @@
 		&::before {
 			@extend %ic;
 			@extend._icon-spoon;
-			color:$mainYellow;
-			font-size: em(9,23);
-
+			color: $mainYellow;
+			font-size: em(9, 23);
 		}
 	}
 	&__title {
@@ -170,11 +170,28 @@
 		text-transform: capitalize;
 		color: $mainYellow;
 	}
-	&_big{
+	&_big {
 		text-align: left;
-		.block-header__title{
+		.block-header__title {
 			@include adaptiveValue("font-size", 90, 90);
 		}
 	}
-	
+}
+.scroll {
+	@extend %fcu;
+	font-weight: 700;
+	line-height: 175%;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	color: $mainYellow;
+	display: flex;
+	align-items: center;
+	gap: 24px;
+	flex-direction: column;
+	&::before{
+		content:'';
+		width: 1px;
+		height: 61px;
+		background-color: $mainYellow;
+	}
 }
