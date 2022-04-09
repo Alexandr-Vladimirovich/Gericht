@@ -3,6 +3,8 @@
 	padding: 10px 0px;
 	position: relative;
 	z-index: 50;
+	
+	
 	background-color: #0c0b08;
 	&__container {
 		display: flex;
@@ -10,6 +12,7 @@
 		min-height: rem(121);
 		@include adaptiveValue("min-height", 121, 50);
 		gap: 10px;
+		
 		@media (max-width: $mobile) {
 			gap: 25px;
 		}
@@ -59,7 +62,7 @@
 			left: -100%;
 			transition: left 0.2s ease 0s;
 			@include adaptiveValue("padding-top", 170, 100);
-			padding-bottom: rem(30);
+			padding-bottom: rem(150);
 			padding-right: rem(15);
 			padding-left: rem(15);
 			&::before {

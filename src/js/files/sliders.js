@@ -7,7 +7,7 @@
 // Подключаем слайдер Swiper из node_modules
 // При необходимости подключаем дополнительные модули слайдера, указывая их в {} через запятую
 // Пример: { Navigation, Autoplay }
-import Swiper, { Navigation,Pagination,EffectFade } from 'swiper';
+import Swiper, { Pagination, Lazy, Autoplay,EffectFade } from 'swiper';
 /*
 Основниые модули слайдера:
 Navigation, Pagination, Autoplay, 
@@ -49,14 +49,14 @@ function initSliders() {
 		new Swiper('.body-main-slider', {
 			// Подключаем модули слайдера
 			// для конкретного случая
-			modules: [Pagination],
-			
+			modules: [Pagination, Lazy, Autoplay,EffectFade],
+
 			effect: 'fade',
 			autoplay: {
 				delay: 3000,
 				disableOnInteraction: false,
 			},
-			
+
 			observer: true,
 			observeParents: true,
 			slidesPerView: 1,
@@ -65,9 +65,11 @@ function initSliders() {
 			speed: 800,
 			//touchRatio: 0,
 			//simulateTouch: false,
-			//loop: true,
-			//preloadImages: false,
-			//lazy: true,
+			loop: true,
+			preloadImages: false,
+			lazy: {
+				loadPrevNext: true,
+			},
 			// Dotts
 			pagination: {
 				el: '.body-main-slider__controll',
@@ -100,7 +102,20 @@ function initSliders() {
 			},
 			*/
 			on: {
-
+				init: function () {
+					const controll = document.querySelectorAll('.body-main-slider__controll .swiper-pagination-bullet');
+					controll.forEach((el, index) => {
+						let num;
+						if (index < 10) {
+							num = `0`;
+						}
+						el.innerHTML = `${num}${index + 1}`;
+					});
+				},
+				breakpoint: function (swiper, info) {
+					!info.autoHeight ? document.querySelector('.body-main-slider__swiper').style.height = 'auto' : '';
+					swiper.updateSize();
+				},
 			}
 		});
 	}
